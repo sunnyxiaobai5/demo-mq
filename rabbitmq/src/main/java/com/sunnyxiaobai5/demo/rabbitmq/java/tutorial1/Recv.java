@@ -1,4 +1,4 @@
-package com.sunnyxiaobai5.demo.rabbitmq.helloworld;
+package com.sunnyxiaobai5.demo.rabbitmq.java.tutorial1;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -10,11 +10,11 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class Consumer {
+public class Recv {
 
     private static final String HOST = "rabbitmq.elapse.com";
 
-    private static final String QUEUE_NAME = "test-queue";
+    private static final String QUEUE_NAME = "queue-tutorial1";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
