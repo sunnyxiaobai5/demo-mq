@@ -26,6 +26,8 @@ public class Send {
 
         Channel channel = connection.createChannel();
 
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+
         for (int i = 0; i < 100; i++) {
             channel.basicPublish("", QUEUE_NAME, null, (message + i).getBytes("UTF-8"));
             System.out.println("send message " + message + i);
