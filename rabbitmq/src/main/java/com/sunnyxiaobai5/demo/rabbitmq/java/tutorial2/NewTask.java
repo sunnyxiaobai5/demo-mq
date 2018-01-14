@@ -36,6 +36,8 @@ public class NewTask {
             String message = scanner.nextLine();
 
             if (message.equals("exit")) {
+                channel.close();
+                connection.close();
                 return;
             }
 
