@@ -9,9 +9,10 @@ public class MessageProperties {
 
     private String orderGoodsRecordQueueName;
 
-    private String orderGoodsRecordQueueRoutingKey;
+    private String orderGoodsRecordRoutingKey;
 
-    public String getHxExchangeName() {
+    public String
+    getHxExchangeName() {
         return hxExchangeName;
     }
 
@@ -27,11 +28,11 @@ public class MessageProperties {
         this.orderGoodsRecordQueueName = orderGoodsRecordQueueName;
     }
 
-    public String getOrderGoodsRecordQueueRoutingKey() {
-        return orderGoodsRecordQueueRoutingKey;
+    public String getOrderGoodsRecordRoutingKey() {
+        return orderGoodsRecordRoutingKey;
     }
 
-    public void setOrderGoodsRecordQueueRoutingKey(String orderGoodsRecordQueueRoutingKey) {
-        this.orderGoodsRecordQueueRoutingKey = orderGoodsRecordQueueRoutingKey;
+    public void setOrderGoodsRecordRoutingKey(String orderGoodsRecordRoutingKey) {
+        this.orderGoodsRecordRoutingKey = orderGoodsRecordRoutingKey;
     }
 }
