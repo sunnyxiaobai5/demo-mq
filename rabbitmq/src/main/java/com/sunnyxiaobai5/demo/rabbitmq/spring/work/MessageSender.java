@@ -2,23 +2,25 @@ package com.sunnyxiaobai5.demo.rabbitmq.spring.work;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MessageSender {
 
     @Autowired
-    private MessageProperties messageProperties;
+    private MQProperties mqProperties;
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    //    @Scheduled(fixedDelay = 1000, initialDelay = 0)
+    @Scheduled(fixedDelay = 1000, initialDelay = 0)
     public void send() {
-        CustomerMessage message = new CustomerMessage();
-        message.setCustomerId(1L);
-        message.setGoodsId(1L);
+        CustomerMessage customerMessage = new CustomerMessage();
+        customerMessage.setCustomerId(1L);
+        customerMessage.setGoodsId(1L);
 
-        rabbitTemplate.convertAndSend(messageProperties.getHxExchangeName(), messageProperties.getOrderGoodsRecordRoutingKey(), message);
+        rabbitTemplate.convertAndSend(mqProperties.getHxExchangeName(),
+                mqProperties.getOrderGoodsRecordRoutingKey(), customerMessage);
     }
 }

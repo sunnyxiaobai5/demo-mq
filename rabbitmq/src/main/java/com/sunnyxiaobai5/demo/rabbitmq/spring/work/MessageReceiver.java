@@ -10,8 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageReceiver {
 
-    @RabbitListener(bindings = @QueueBinding(value = @Queue(value = "${haixue.mq.orderGoodsRecordQueueName}", durable = "true", exclusive = "false", autoDelete = "false"),
-            exchange = @Exchange(value = "${haixue.mq.hxExchangeName}", type = "topic", durable = "true"), key = "${haixue.mq.orderGoodsRecordRoutingKey}"))
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "${haixue.mq.orderGoodsRecordQueueName}", durable = "true",
+                    exclusive = "false", autoDelete = "false"),
+            exchange = @Exchange(value = "${haixue.mq.hxExchangeName}", type = "topic", durable = "true"),
+            key = "${haixue.mq.orderGoodsRecordRoutingKey}"))
     public void onMessage(CustomerMessage message) {
         System.out.println("receive:" + message);
     }

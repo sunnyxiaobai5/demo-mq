@@ -3,7 +3,7 @@ package com.sunnyxiaobai5.demo.rabbitmq.spring.work;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "haixue.mq")
-public class MessageProperties {
+public class MQProperties {
 
     private String hxExchangeName;
 
@@ -11,8 +11,7 @@ public class MessageProperties {
 
     private String orderGoodsRecordRoutingKey;
 
-    public String
-    getHxExchangeName() {
+    public String getHxExchangeName() {
         return hxExchangeName;
     }
 

@@ -1,7 +1,11 @@
 package com.sunnyxiaobai5.demo.rabbitmq.spring;
 
-import com.sunnyxiaobai5.demo.rabbitmq.spring.work.MessageProperties;
+import com.sunnyxiaobai5.demo.rabbitmq.spring.work.MQProperties;
 import com.sunnyxiaobai5.demo.rabbitmq.spring.work.MessageSender;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableConfigurationProperties({MessageProperties.class})
+@EnableConfigurationProperties({MQProperties.class})
 public class Application {
 
     @Value("${tutorial.client.duration:0}")
